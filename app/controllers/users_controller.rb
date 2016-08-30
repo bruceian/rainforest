@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       redirect_to products_url, notice: "Signed Up!"
     else
       render "new"
-    end 
+    end
   end
 
 
