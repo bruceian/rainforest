@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830215034) do
+ActiveRecord::Schema.define(version: 20170119163302) do
+
+  create_table "condos", force: :cascade do |t|
+    t.integer  "number_of_rooms"
+    t.boolean  "den"
+    t.integer  "price"
+    t.text     "description"
+    t.integer  "unit"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number_of_rooms: 1
+  den: false
+  price: 1
+  description: MyText
+  unit: 1
+
+two:
+  number_of_rooms: 1
+  den: false
+  price: 1
+  description: MyText
+  unit: 1
