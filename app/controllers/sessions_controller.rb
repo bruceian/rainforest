@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id 
-      redirect_to products_url, :notice => "Logged In!"
+      session[:user_id] = user.id
+      redirect_to condos_url, :notice => "Logged In!"
     else
       flash.now[:alert] = "Invalid email or password"
       render "new"
@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to products_url, notice: "Logged Out!"
+    redirect_to condos_url, notice: "Logged Out!"
   end
 end
