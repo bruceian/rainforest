@@ -1,7 +1,11 @@
 <% @condos.each do |condo| %>
-<h2>Unit <%= condo.unit %></h2>
-<p>No. of bedrooms <%= condo.number_of_rooms %></p>
-<p>$<%= condo.price %> CAD</p>
-<p><%= condo.description %></p>
-<p>Does it come with a den? <%= condo.den %></p>
+<h2 class="unit_number">Unit <%= condo.unit %></h2>
+<p class="no_of_bedrooms">No. of bedrooms <%= condo.number_of_rooms %></p>
+<p class="condo_price">$<%= condo.price %> CAD</p>
+<p class="condo_description"><%= condo.description %></p>
+  <% if condo.den == true %>
+      <p class="yes_den">Includes Den</p>
+    <% else %>
+      <p class="no_den">No Den</p>
+    <% end %>
 <% end %>

@@ -1,4 +1,6 @@
 class Condo < ActiveRecord::Base
+  has_many :favourites
+  has_many :users, through: :favourites 
 
   validates_uniqueness_of :unit
   validates :description, presence: true
