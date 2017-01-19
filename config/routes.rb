@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+root :to => 'condos#index'
+
 resources :condos
 
-resources :products do
-  resources :reviews, only: [:show, :create, :destroy]
+resources :condos do
+  resources :favourites, only: [:show, :create, :destroy]
 end
 resources :users, only: [:new, :create]
 resources :sessions, only: [:new, :create, :destroy]

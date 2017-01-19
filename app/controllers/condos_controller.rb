@@ -43,7 +43,7 @@ class CondosController < ApplicationController
 
     private
     def condo_params
-      params.require(:condo).permit(:number_of_rooms, :den, :price, :description. :unit)
+      params.require(:condo).permit(:number_of_rooms, :den, :price, :description, :unit)
     end
 
 end
