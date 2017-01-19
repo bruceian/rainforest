@@ -5,6 +5,10 @@ class CondosController < ApplicationController
 
   def show
     @condo = Condo.find(params[:id])
+
+    if current_user
+      @favourite = @condo.favourites.build
+    end 
   end
 
   def new

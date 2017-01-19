@@ -2,8 +2,12 @@
   <p>No. of bedrooms<%= @condo.number_of_rooms %></p>
   <p>$<%= @condo.price %> CAD</p>
   <p>$<%= @condo.den %></p>
-  <% @product.reviews.each do |review| %>
-    <p>
+  <% if @condo.favourite == true %>
+      <p class="yes_fav">Watching This Item</p>
+      <%= @condo.favourite.comment %>
+    <% else %>
+      <p class="not_fav">Not Watching This Item</p>
+    <% end %>
       <%= review.comment %>
       <br>
       <% if review.user != nil %>

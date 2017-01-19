@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'favourites/show'
+
+  get 'favourites/create'
+
+  get 'favourites/destroy'
+
 root :to => 'condos#index'
 
 resources :condos
