@@ -1,33 +1,31 @@
-<h3>Unit<%= @condo.unit %></h3>
-  <p>No. of bedrooms<%= @condo.number_of_rooms %></p>
+<h3>Unit <%= @condo.unit %></h3>
+  <p>No. of bedrooms <%= @condo.number_of_rooms %></p>
   <p>$<%= @condo.price %> CAD</p>
-  <p>$<%= @condo.den %></p>
-  <% if @condo.favourite == true %>
+  <% if @condo.den == true %>
+      <p class="yes_den">Includes Den</p>
+    <% else %>
+      <p class="no_den">No Den</p>
+    <% end %>
+
+<% if current_user %>
+
+  <% if @favourite.heart == 1 %>
       <p class="yes_fav">Watching This Item</p>
-      <%= @condo.favourite.comment %>
     <% else %>
       <p class="not_fav">Not Watching This Item</p>
     <% end %>
-      <%= review.comment %>
-      <br>
-      <% if review.user != nil %>
-      <em> by <%= review.user.email %></em>
-      Added on: <%= review.created_at %>
-      <% end %>
-    </p>
 
 <% end %>
 
 <% if current_user %>
-  <h4>New Review</h4>
 
-  <%= form_for([@product, @review]) do |f| %>
-    <% if @review.errors.any? %>
+  <%= form_for([@condo, @favourite]) do |f| %>
+    <% if @favourite.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+        <h2><%= pluralize(@favourite.errors.count, "error") %> prohibited this favourite from being saved:</h2>
 
         <ul>
-        <% @review.errors.full_messages.each do |msg| %>
+        <% @favourite.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>
@@ -35,14 +33,15 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :comment %><br />
-      <%= f.text_area :comment %>
+      <%= f.label "Watch this site?"%>
+      <%= f.check_box :heart %>
     </div>
     <div class="actions">
       <%= f.submit %>
     </div>
-  <% end %>
+    <% end %>
 
 <% else %>
-  <p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
+  <p>Please <%= link_to "log in", new_session_path %> to add a favourite.</p>
+
 <% end %>

@@ -26,7 +26,7 @@ class FavouritesController < ApplicationController
     params.require(:favourite).permit(:heart, :condo_id)
   end
 
-  def load_product
-    @condo = Condo.find(params(:condo_id))
+  def load_condo
+    @condo = Condo.find(params[:condo_id])
   end
 end

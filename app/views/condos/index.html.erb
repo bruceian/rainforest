@@ -1,5 +1,5 @@
 <% @condos.each do |condo| %>
-<h2 class="unit_number">Unit <%= condo.unit %></h2>
+<h2 class="unit_number"><%= link_to "Unit #{condo.unit}", condo_path(condo.id) %></h2>
 <p class="no_of_bedrooms">No. of bedrooms <%= condo.number_of_rooms %></p>
 <p class="condo_price">$<%= condo.price %> CAD</p>
 <p class="condo_description"><%= condo.description %></p>
@@ -8,5 +8,4 @@
     <% else %>
       <p class="no_den">No Den</p>
     <% end %>
-    <%= link_to condo_path(condo) %>
 <% end %>

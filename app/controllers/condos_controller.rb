@@ -8,7 +8,7 @@ class CondosController < ApplicationController
 
     if current_user
       @favourite = @condo.favourites.build
-    end 
+    end
   end
 
   def new
